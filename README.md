@@ -49,7 +49,7 @@ function companyHandleFn(transaction: any) {
     });
 }
 
-// 单位处理事务的函数
+// 集团处理事务的函数
 function groupHandleFn(transaction: any) {
     return new Promise((resolve) => {
         setTimeout(function() {
