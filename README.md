@@ -9,11 +9,13 @@
 #### 责任链模式的API
 
 - ResChain类
+
 | 类 | 说明 | 入参 |
 | ---- | ---- | ---- |
 | ResChain | constructor(handleFn: HandleFn, transaction?: any,  next?: ResChain) | HandleFn:处理事务的函数，transaction：事务， next：下一个处理对象 |
 
 - 实例方法或属性
+
 | 名称 | 说明 | 入参 | 出参 |
 | ---- | ---- | ---- | ---- |
 | setNext | 设置下一个处理对象，setNext(next: ResChain) | next: 下一个处理对象 | void |
@@ -95,6 +97,7 @@ dept.handle();
 ```
 
 #### 单例模式API
+
 | 名称 | 说明 | 入参 | 出参 |
 | ---- | ---- | ---- | ---- |
 | singles | 一个属性，所有的单例 | none | none |
