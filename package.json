@@ -1,8 +1,10 @@
 {
   "name": "wj-design-art",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "让javascript使用设计模式更简单",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": ["/lib"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --open",

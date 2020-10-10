@@ -6,6 +6,19 @@
 
 ### 使用
 
+#### 责任链模式的API
+
+- ResChain类
+| 类 | 说明 | 入参 |
+| ---- | ---- | ---- |
+| ResChain | constructor(handleFn: HandleFn, transaction?: any,  next?: ResChain) | HandleFn:处理事务的函数，transaction：事务， next：下一个处理对象 |
+
+- 实例方法或属性
+| 名称 | 说明 | 入参 | 出参 |
+| ---- | ---- | ---- | ---- |
+| setNext | 设置下一个处理对象，setNext(next: ResChain) | next: 下一个处理对象 | void |
+| handle | 开始处理事务，handle(transaction?: any) | transaction：要处理的事务 | void |
+
 #### 责任链模式的使用
 ```javascript
 import designArt from 'wj-design-art';
@@ -79,6 +92,50 @@ dept.handle();
 // 1100部门不能解决，给单位
 // 1100单位不能解决，给集团
 // 1100集团解决了
+```
+
+#### 单例模式API
+| 名称 | 说明 | 入参 | 出参 |
+| ---- | ---- | ---- | ---- |
+| singles | 一个属性，所有的单例 | none | none |
+| add | 增加单例，add(_class: any, classname: string = _class.name, ...args: any[]) | _class：类，classname：类名，...args：实例化类时的参数 | void |
+| del | 删除单例，del(key: string) | key：要删除的键 | void |
+| clear | 清空，clear() | none | void |
+
+#### 单例模式的使用
+```javascript
+import designArt from 'wj-design-art';
+const { singleCase } = designArt;
+
+class A {
+    getName() {
+        return 'wj';
+    }
+}
+class B {
+    getName() {
+        return 'jack';
+    }
+}
+class C {
+    public myname: string;
+    constructor(name: string) {
+        this.myname = name;
+    }
+    getName() {
+        return this.myname;
+    }
+}
+singleCase.add(A); // {A: instance}
+singleCase.add(B, 'singleB'); // {A: instance, singleB: instance}
+singleCase.add(C, 'singleC', 'cname'); // {A: instance, singleB: instance, singleC: instance}
+const singles = singleCase.singles; // {A: instance, singleB: instance, singleC: instance}
+console.log(singles.A.getName()); // wj
+console.log(singles.singleB.getName()); // jack
+console.log(singles.singleC.getName()); // cname
+singleCase.del('A'); // {singleB: instance, singleC: instance}
+singleCase.del('singleB'); // {singleC: instance}
+singleCase.clear(); // {}
 ```
 
 ### 仓库地址
