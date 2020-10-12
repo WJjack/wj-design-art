@@ -141,5 +141,60 @@ singleCase.del('singleB'); // {singleC: instance}
 singleCase.clear(); // {}
 ```
 
+### 命令模式
+#### 命令模式API
+
+- Command 类
+
+| 类 | 说明 | 入参 |
+| Command | 命令模式类 | none |
+
+- 实例方法
+
+| 名称 | 说明 | 入参 | 出参 |
+| --- | ---- | ---- | ---- |
+| add | 添加命令， add(command: CommandItem) | command：函数或者是实现了ICommand接口的实例 | Command |
+| remove | 删除命令，remove(command: CommandItem) | command：函数或者是实现了ICommand接口的实例 | Command |
+| undo | 撤销命令，删除最后一次添加的命令，undo() | none | Command |
+| reset | 重置命令，清空所有命令，reset() | none | Command |
+
+#### 命令模式的使用
+
+```javascript
+import designArt from 'wj-design-art';
+import { ICommand } from 'wj-design-art/lib/Command/types.d.ts';
+
+const { Command } = designArt;
+
+const command = new Command();
+
+class One implements ICommand {
+    execute() {
+        console.log('one');
+    }
+}
+
+const one = new One();
+
+function two() {
+    console.log('command two');
+}
+
+command.add(one).add(two);
+
+command.add(function() {
+    console.log('command three');
+});
+
+// one,command two,command three
+
+command.remove(one); // command two,command three
+
+command.undo(); // command two
+
+command.execute(); // command two
+
+```
+
 ### 仓库地址
 <https://github.com/WJjack/wj-design-art.git>

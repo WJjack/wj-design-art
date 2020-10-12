@@ -1,3 +1,5 @@
+import { ICommand } from '../Command/types';
+
 // 是否是一个类
 export function isClass(obj: any, strict: boolean = true) {
     if (typeof obj !== "function") return false;
@@ -49,4 +51,12 @@ export function deepCopy(o: any): any {
     } else {
         return o;
     }
+}
+
+/**
+ * @description 是否是ICommand数据类型
+ * @param object 
+ */
+export function instanceofCommand(object: any): object is ICommand {
+    return typeof object.execute === 'function';
 }
