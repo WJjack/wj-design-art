@@ -1,6 +1,6 @@
 {
   "name": "wj-design-art",
-  "version": "1.1.0",
+  "version": "1.2.3",
   "description": "让javascript使用设计模式更简单",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

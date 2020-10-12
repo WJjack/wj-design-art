@@ -147,6 +147,7 @@ singleCase.clear(); // {}
 - Command 类
 
 | 类 | 说明 | 入参 |
+| --- | ---- | ---- | ---- |
 | Command | 命令模式类 | none |
 
 - 实例方法
@@ -157,12 +158,13 @@ singleCase.clear(); // {}
 | remove | 删除命令，remove(command: CommandItem) | command：函数或者是实现了ICommand接口的实例 | Command |
 | undo | 撤销命令，删除最后一次添加的命令，undo() | none | Command |
 | reset | 重置命令，清空所有命令，reset() | none | Command |
+| execute | 执行所有的命令，execute() | none | void |
 
 #### 命令模式的使用
 
 ```javascript
 import designArt from 'wj-design-art';
-import { ICommand } from 'wj-design-art/lib/Command/types.d.ts';
+import { ICommand } from 'wj-design-art/lib/Command/types';
 
 const { Command } = designArt;
 
