@@ -164,7 +164,7 @@ singleCase.clear(); // {}
 
 ```javascript
 import designArt from 'wj-design-art';
-import { ICommand } from 'wj-design-art/lib/Command/types';
+import { ICommand } from 'wj-design-art/lib/types/Command/types';
 
 const { Command } = designArt;
 

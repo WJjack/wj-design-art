@@ -1,9 +1,9 @@
 {
   "name": "wj-design-art",
-  "version": "1.2.3",
+  "version": "1.2.5",
   "description": "让javascript使用设计模式更简单",
   "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "types": "lib/types/index.d.ts",
   "files": ["/lib"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -6,6 +6,8 @@
         "target": "es5",
         "declaration": true,
         "outDir": "./lib",
+        "declarationDir": "./lib/types/",// 声明文件打包的位置
+        "declarationMap": true,// 是否生成声明文件map文件（便于调试）
         "baseUrl": ".",
         "paths": {
             "@/*": [
